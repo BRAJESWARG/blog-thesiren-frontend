@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { DataBase } from './Components/ArrayOfBlog/ArrayOfBlog';
+import Home from "./Components/Home-Section/Home";
+import AllCategory from "./Components/AllCategory"
+import Article from "./Components/Article"
+import Nav from "./Components/Nav/Nav.js";
+import Footer from './Components/Home-Section/Footer/Footer';
+import NotFound from "./Components/Home-Section/Not Found/NotFound";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <DataBase>
+      <Router>
+        <div className="App">
+          <Nav />
+          <br />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/category/:cat" element={<AllCategory />} />
+            <Route path="/article/:cat/:Id" element={<Article />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    // </DataBase>
   );
 }
 

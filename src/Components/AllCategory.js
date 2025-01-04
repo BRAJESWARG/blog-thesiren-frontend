@@ -17,7 +17,9 @@ const AllCategory = () => {
 
     useEffect(() => {
 
-        axios.get(`https://fathomless-wildwood-68036.herokuapp.com/api/v1/TheSiren/${cat}`).then(
+        // axios.get(`https://fathomless-wildwood-68036.herokuapp.com/api/v1/TheSiren/${cat}`).then(
+        axios.get(`http://localhost:8040/api/v1/TheSiren`).then(
+
             data => setBlogs(data.data)
         )
 

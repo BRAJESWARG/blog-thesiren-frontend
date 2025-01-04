@@ -11,18 +11,19 @@ import MoreFromSiren from './MoreFromSiren';
 const Article = () => {
 
     // const [blogs] = useContext(ArrayofBlogs)
-    
-    const[blogs, setBlogs] = useState([]);
+
+    const [blogs, setBlogs] = useState([]);
     const { Id } = useParams()
     const { cat } = useParams()
 
     useEffect(() => {
 
-        axios.get(`https://fathomless-wildwood-68036.herokuapp.com/api/v1/TheSiren/${cat}`).then(
+        // axios.get(`https://fathomless-wildwood-68036.herokuapp.com/api/v1/TheSiren/${cat}`).then(
+        axios.get(`http://localhost:8040/api/v1/TheSiren`).then(
             data => setBlogs(data.data)
         )
 
-    },[cat])
+    }, [cat])
 
     return (
         <div>
@@ -53,7 +54,7 @@ const Article = () => {
                 </div>
             ))}
 
-        <MoreFromSiren blogs = { blogs } />
+            <MoreFromSiren blogs={blogs} />
 
         </div>
     );

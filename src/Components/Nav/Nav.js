@@ -7,15 +7,16 @@ import axios from 'axios';
 
 const NavComponent = () => {
   // const [blogs] = useContext(ArrayofBlogs)
-  const[blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
 
-      axios.get(`https://fathomless-wildwood-68036.herokuapp.com/api/v1/TheSiren`).then(
-          data => setBlogs(data.data)
-      )
+    // axios.get(`https://fathomless-wildwood-68036.herokuapp.com/api/v1/TheSiren`).then(
+    axios.get(`http://localhost:8040/api/v1/TheSiren`).then(
+      data => setBlogs(data.data)
+    )
 
-  },[])
+  }, [])
 
   return (
     <div>
@@ -32,7 +33,7 @@ const NavComponent = () => {
           <Link to={`/category/${val.Category}`} className='NavCategory' key={index} >{val.Category}</Link>
 
         ))}
-        
+
 
       </div>
       {/* <hr className='navHr' /> */}
